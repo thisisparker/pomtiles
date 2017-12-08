@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 for i in range(1,7584):
     imgname = "POM0000" + format(i,"04d") + ".jpg"
     res = requests.get("https://commons.wikimedia.org/wiki/File:Pomological_Watercolor_" + imgname)
-    soup = BeautifulSoup(res.text)
+    soup = BeautifulSoup(res.text, "lxml")
     thumbs = soup.select('.mw-thumbnail-link')
 
     print("got thumbnails for " + imgname)
